@@ -1,0 +1,27 @@
+@import "../../helpers/variables";
+
+.weather-component{
+    display:block;
+    margin-top: 200px;
+    width: 80%;
+    margin:100px auto 0 auto;
+    text-align:center;
+    min-height:70vh;
+
+    .title-weather{
+        font-size: 2rem;
+        line-height: 40px;
+        color: $color-font;
+
+        span{
+            color: $color-brand;
+        }
+    } 
+
+    .wrapper-input{
+
+        input{
+            width: 50%;
+        }
+    }
+}

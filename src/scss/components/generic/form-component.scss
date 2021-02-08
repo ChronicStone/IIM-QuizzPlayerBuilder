@@ -1,0 +1,30 @@
+@import "../../helpers/variables";
+
+.contain{
+    padding-top:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+    width:100%;
+
+    .error{
+        color: $error;
+        font-weight: 600;
+        font-size: 2rem;
+    }
+    .form-component{
+        width:400px;
+        padding:20px;
+        text-align:center;
+        border-radius:$radius;
+    
+        input{
+            margin:15px 0;
+        }
+        a{  
+            margin:10px 0;
+        }
+        
+    }
+}

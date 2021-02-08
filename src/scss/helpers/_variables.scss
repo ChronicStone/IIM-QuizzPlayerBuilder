@@ -1,0 +1,35 @@
+@import "./reset.scss";
+@import "./_mixins.scss";
+
+$color-brand: #500ad2;
+$color-brand-hover: #490fb6;
+$color-font: #2C2F33;
+$color-input:#E1E8ED;
+$error:#e74c3c;
+$white: #ffffff;
+$black: black;
+
+$font-simple:16px;
+$font-title: 20px;
+$letter-spacing-small: .2px;
+$letter-spacing-normal: .3px;
+
+$radius:7px;
+
+$padding: 1em;
+
+$phone: 375px;
+$mobile: 768px;
+$small: 992px;
+$desktop: 1599px;
+
+
+$shadow-1: 5px 5px 20px rgba(0,0,0,0.1);
+$transition:0.7s;
+$cubicOnly: cubic-bezier(.5, .6, .51, .92);
+$cubic: .3s $cubicOnly;
+
+$z-index: (
+  null: 0,
+  flash: 1,
+);

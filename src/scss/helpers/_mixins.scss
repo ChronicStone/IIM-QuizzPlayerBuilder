@@ -1,0 +1,48 @@
+@mixin flex-row($res)  {
+    display: flex;
+    align-items:center;
+    justify-content: $res;
+    @content;
+}
+
+@mixin box-shadow {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    &:hover{
+        box-shadow: rgba(0, 0, 0, 0.20) 0px 5px 15px;
+    }
+    -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    @content;
+}
+
+@mixin flex-col($res)  {
+    display: flex;
+    align-items:$res;
+    flex-direction: column;
+    justify-content: center;
+    @content;
+}
+
+@mixin max-screen($res) {
+    @media screen and (max-width: $res) {
+        @content;
+    }
+}
+
+@mixin max-screen-height($res) {
+    @media screen and (max-height: $res) {
+        @content;
+    }
+}
+
+@mixin max-screen-height-for-desktop($res, $resWith){
+    @media screen and (max-height: $res) and (min-width: $resWith){
+        @content;
+    }
+}
+
+@mixin min-screen($res) {
+    @media screen and (min-width: $res) {
+        @content;
+    }
+}

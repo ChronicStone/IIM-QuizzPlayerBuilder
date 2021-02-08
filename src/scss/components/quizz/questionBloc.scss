@@ -1,0 +1,11 @@
+@import "../../helpers/variables";
+
+.quizzCard {
+    padding: $padding;
+    box-shadow: $shadow-1;
+    font-family: 'Montserrat', sans-serif;
+    background: rgb(241, 241, 241);
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+}

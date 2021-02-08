@@ -1,0 +1,38 @@
+
+@import "../../helpers/variables";
+
+.main-btn-component{
+    font-size: 1rem;
+    cursor: pointer;
+    line-height: 16px;
+    display: inline-block;
+    text-align: center;
+    padding: 12px 24px 11px;
+    border-radius: $radius;
+    outline:none;
+    color: #ffffff;
+    border: 1px solid $color-brand;
+    background-color: $color-brand;
+    letter-spacing: 0.3px;
+    transition: $cubic;
+
+    @include box-shadow;
+  
+    &:hover{
+      color: $color-brand;
+      background-color: $white;
+    }
+}
+
+.inverse{
+  background-color: transparent;
+  color: $color-brand;
+  border: 1px solid $color-brand;
+  transition: $cubic;
+  box-shadow: none;
+
+  &:hover{
+    color: $white;
+    background-color: $color-brand;
+  }
+}

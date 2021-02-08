@@ -1,0 +1,33 @@
+@import "../helpers/variables";
+
+.container{
+    padding-top: 150px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
+    
+    @include min-screen(576px){ 
+        max-width: 100%;
+    }
+
+    @include min-screen(576px){
+        max-width: 540px;
+    }
+
+
+    @include min-screen(768px){
+        max-width: 720px;
+    }
+
+    @include min-screen(992px){
+        max-width: 960px;
+    }
+
+    @include min-screen(1200px){
+        max-width: 1180px;
+    }
+
+    @include min-screen(1800px){
+        max-width: 1300px;
+    }    
+}

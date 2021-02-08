@@ -1,0 +1,128 @@
+@import "../../helpers/variables";
+
+.file-input-component{
+  text-align: center;
+  margin: 15px 0;
+  input{
+    display: block;
+  }
+  // label{
+  //   display: block;
+  //   color: #FFF;
+  //   background: $color-brand;
+  //   padding: .3rem .6rem;
+  //   font-size: 115%;
+  //   width: 60%;
+  //   margin: auto;
+  //   border-radius: $radius;
+  //   cursor: pointer;
+
+  //   i{
+  //       font-size: 125%;
+  //       margin-right: .3rem;
+  //       &:hover{
+  //           i{
+  //               animation: shake .35s;
+  //           }
+  //       }
+  //   }
+  // }
+  img{
+    max-width: 175px;
+    display: none;
+  }
+  span{
+    display: none;
+    text-align: center;
+    cursor: pointer;
+  }
+}
+
+
+
+
+input[type=file] {
+  display:none;
+}
+
+.inputfile-2 + label {
+  color: $color-brand;
+  border: 2px solid currentColor;
+  outline: none;
+}
+
+.inputfile-2:focus + label,
+.inputfile-2.has-focus + label,
+.inputfile-2 + label:hover {
+  color: $color-brand-hover;
+  outline: none;
+}
+
+
+/* style 3 */
+
+.inputfile + label {
+  max-width: 80%;
+  font-size: 1.25rem;
+  /* 20px */
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.625rem 1.25rem;
+  outline: none;
+  /* 10px 20px */
+}
+
+.no-js .inputfile + label {
+  display: none;
+}
+
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+  outline: none;
+}
+
+
+/* style 3 */
+
+.inputfile + label * {
+  /* pointer-events: none; */
+  /* in case of FastClick lib use */
+}
+
+.inputfile + label svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+  margin-top: -0.25em;
+  /* 4px */
+  margin-right: 0.25em;
+  /* 4px */
+}
+
+
+
+// animation keyframes
+@keyframes shake{
+  0%{
+    transform: rotate(0deg)
+  }
+  25%{
+      transform: rotate(10deg)
+  }
+  50%{
+      transform: rotate(0deg)
+  }
+  75%{
+      transform: rotate(-10deg)
+  }
+  100%{
+      transform: rotate(0deg)
+  }
+}

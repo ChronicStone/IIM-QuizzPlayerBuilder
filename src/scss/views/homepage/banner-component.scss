@@ -1,0 +1,33 @@
+@import "../../helpers/variables";
+
+.banner-component{
+    display:block;
+    width: 80%;
+    margin:auto;
+    text-align:center;
+    padding-top:200px;
+    min-height:100vh;
+
+    .hero-title{
+        font-size:2.5rem;
+        line-height:50px;
+
+        span{
+            color:$color-brand;
+        }
+    }
+
+    .hero-description{
+        color:$color-font;
+        font-weight: 400;
+        line-height:22px;
+    }
+
+    .hero-wrapper-btn{
+        @include flex-row(center);
+
+        div{
+            margin: 0px 20px
+        }
+    }
+}

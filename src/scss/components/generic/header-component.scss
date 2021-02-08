@@ -1,0 +1,51 @@
+@import "../../helpers/variables";
+
+.header-component {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    .rightBloc {
+        margin-right: 50px;
+    }
+
+    .leftBloc {
+        margin-left: 50px;
+    }
+
+
+}
+
+.menuItem {
+    color: black;
+    display: inline-block;
+    margin: 0;
+    cursor:pointer;
+    margin-right: 30px;
+    &:hover {
+        color: $color-brand;
+    }
+}
+.menuItem:after {
+    margin-top: 3px;
+    display: block;
+    content: "";
+    border-bottom: solid 3px $color-brand;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+.menuItem:hover:after {
+    transform: scaleX(1);
+    -webkit-transform: scaleX(1);
+    -moz-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    -o-transform: scaleX(1);
+}
+
+.menuItem.active:after {
+    transform: scaleX(1);
+}

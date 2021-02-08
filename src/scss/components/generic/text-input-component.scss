@@ -1,0 +1,13 @@
+@import "../../helpers/variables";
+
+.text-input-component{
+    background: $color-input;
+    resize: none;
+    color: $color-font;
+    border: solid 1px $color-input;
+    width: 100%;
+    outline: none;
+    padding: 10px 5px;
+    border-radius: $radius;
+    font-size: $font-simple;
+}

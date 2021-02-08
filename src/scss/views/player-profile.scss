@@ -1,0 +1,122 @@
+@import "../helpers/variables";
+
+.grid-container {
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1);
+    margin-top: -50px;
+    width: 100%;
+    height: 75vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1em;
+    grid-template-areas: "PlayerProfile PlayerProfile PlayerProfile PlayerProfile" "PlayerScore PlayerScore PlayerQuizz PlayerQuizz" "PlayerScore PlayerScore PlayerQuizz PlayerQuizz";
+    border-radius: 15px;
+    padding: 1em;
+}
+.PlayerProfile {
+    grid-area: PlayerProfile;
+    background: $color-brand;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    .avatar {
+        width: 100px;
+        height: 100px;
+        margin-left: 25px;
+        background-color: #fff;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+}
+.PlayerScore {
+    grid-area: PlayerScore;
+    background: $color-brand;
+    border-radius: 15px;
+    padding: 0.7em;
+}
+
+.PlayerQuizz {
+    grid-area: PlayerQuizz;
+    background: $color-brand;
+    border-radius: 15px;
+    padding: 0.7em;
+}
+
+.PlayerQuizz,
+.PlayerScore {
+    position: relative;
+    .emptyDataMsg {
+        text-align: center;
+        color: lightgrey;
+        padding: 1em;
+    }
+
+    .titleBloc {
+        height: fit-content;
+        width: auto;
+        padding: 0.5em;
+        background: #fff;
+        color: $color-brand;
+        font-size: 19px;
+        text-align:center;
+        text-transform: uppercase;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+    }
+
+    .dataList {
+        margin-top: 1em;
+        width: 96%;
+        height: 75%;
+        overflow-y: scroll;
+        position: absolute;
+
+        .listItem {
+            width: 95%;
+            padding: 0.6em;
+            background-color: rgba(221, 221, 221, 0.274);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+            cursor: pointer;
+            transition: .3s ease-in-out all;
+            
+            &:hover {
+                padding-top: 1.2em;    
+                padding-bottom: 1.2em;  
+                background-color: rgba(175, 114, 180, 0.274);
+  
+            }
+        }
+
+        &::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background-color: rgba(221, 221, 221, 0.274);
+        }
+
+        &::-webkit-scrollbar {
+            width: 12px;
+            background-color: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            background-color: #360e80;
+        }
+    }
+}

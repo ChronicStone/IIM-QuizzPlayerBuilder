@@ -1,0 +1,29 @@
+@import "../../helpers/variables";
+
+.quizzListGrid {
+    display: grid;
+    grid-gap: 2em;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    
+}
+
+
+.quizzCard {
+    padding: $padding;
+    box-shadow: $shadow-1;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(241, 241, 241);
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+
+    .title {
+        color: $color-brand;
+        text-transform: uppercase;
+    }
+
+    .description {
+        font-size: 13px; 
+        color: gray;
+    }
+}
