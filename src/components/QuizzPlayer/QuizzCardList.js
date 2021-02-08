@@ -27,7 +27,7 @@ class QuizzCardList extends React.Component {
     }
 
     componentDidMount() {
-        console.log("I will get called once the page gets loaded");
+        console.log(this)
         this.setState({...this.state, isFetching: true});
         axios.get('/quizz')
         .then(response => {
@@ -45,7 +45,7 @@ class QuizzCardList extends React.Component {
                 {this.state.isFetching ? 
                     <p>'Fetching quizz list ...'</p> :
                     <div className="quizzListGrid">
-                        {this.state.quizzList.map((quizz, key) => {
+                        {this.state.quizzList.filter(quizz => quizz.title.toLowerCase().includes(this.props.searchFilter.toLowerCase())).map((quizz, key) => {
                             return (<QuizzCard key={key} quizzData={quizz}/>)
                         })}
                     </div>
