@@ -7,6 +7,7 @@ import ConfirmPopup from "../../components/confirmPopup"
 import QuestionForm from "../../components/QuizzEditor/QuestionForm"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fasLock } from '@fortawesome/free-solid-svg-icons'
+import { act } from "react-dom/test-utils"
 
 const NewQuestionLayout = (quizzId) => {
     return {
@@ -109,7 +110,7 @@ export default class QuizzEditor extends React.Component {
         if (question) return (<QuestionForm saveNewQuestion={this.saveNewQuestion.bind(this)} question={question} index={this.state.questions.indexOf(question)} />)
         else return (
             <div style={{ width: "100%", height: "100%", display: "grid", placeItems: "center" }}>
-                <img src={`${window.location.origin}/img/choose.svg`} />
+                <img src={`${window.location.origin}/img/choose.svg`} alt="delete icon"/>
             </div>
         )
     }
@@ -128,21 +129,70 @@ export default class QuizzEditor extends React.Component {
     }
 
     triggerDeleteQuestion(question) {
-        console.log('triggered')
         if (question.notSaved) this.reloadQuizzData()
         else this.setState({
             delQuestPopup: {
                 active: true,
                 props: {
-                    questionId: question.id
+                    questionId : question.id,
+                    title: "Please confirm your operation",
+                    message:`You are asking to delete "${question.questionInput}" question. Once deleted, a question can never be recovered.`
                 }
             }
         })
     }
 
+    triggerDeleteQuizz() {
+        this.setState({
+            delQuestPopup: {
+                active: true,
+                props: {
+                    title: "Please confirm your operation",
+                    message:`You are asking to delete ${this.state.quizzData.title} quizz. Once deleted, a quizz can never be recovered.`
+                }
+            }
+        })
+    }
+
+
+    handleDelete() {
+        if (this.state.delQuestPopup.props.questionId) this.confirmQuestionDelete()
+        else this.confirmQuizzDelete()
+
+    }
+
+    confirmQuizzDelete() {
+        this.setState({ delQuestPopup: { active: true, props: {} }})
+        api.delete(`/quizz/delete/${this.state.quizzData.id}`)
+            .then((response) => {
+                if (response.data.success) {
+                    this.reloadQuizzData()
+                    Toast({
+                        title: "Operation successful",
+                        text: "The question have been deleted",
+                        type: "success"
+                    })
+                    this.props.history.push("/quizz/editor")
+                } else Toast({
+                    title: "Operation failed",
+                    text: response.data.message || "An error has occured.",
+                    type: "danger"
+                })
+            })
+            .catch((err) => {
+                console.error(err)
+                Toast({
+                    title: "Operation failed",
+                    text: err.data.message || "An error has occured.",
+                    type: "danger"
+                })
+            })
+
+    }
+
     confirmQuestionDelete(actionProps) {
-        this.setState({ delQuestPopup: { active: false, props: {} } })
-        api.delete(`/question/delete/${actionProps.questionId}`)
+        this.setState({ delQuestPopup: { active: false, props : {} } })
+        api.delete(`/question/delete/${this.state.delQuestPopup.props.questionId}`)
             .then((response) => {
                 if (response.data.success) {
                     this.reloadQuizzData()
@@ -181,8 +231,6 @@ export default class QuizzEditor extends React.Component {
        
     }
 
-
-
     render() {
         return (
             <div style={{ display: "flex", flexDirection: "column" }}>
@@ -193,10 +241,10 @@ export default class QuizzEditor extends React.Component {
                         <div>{this.state.quizzData.title}</div>
                     </div>
                     <div className="rightSide">
-                        <button onClick={() => { console.log('click') }} className="main-btn-component danger">DELETE QUIZZ</button>
+                        <button onClick={this.triggerDeleteQuizz.bind(this)} className="main-btn-component danger">DELETE QUIZZ</button>
                         {!this.state.quizzData.published ?
-                            <button onClick={this.setQuizzPublicMode.bind(this)} className="main-btn-component danger" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>PRIVATE MODE <i style={{ marginLeft: "10px" }} class="fas fa-lock"></i></button> :
-                            <button onClick={() => { this.setQuizzPrivateMode.bind(this) }} className="main-btn-component success" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>PUBLIC MODE <i style={{ marginLeft: "10px" }} class="fas fa-lock-open"></i></button>
+                            <button onClick={this.setQuizzPublicMode.bind(this)} className="main-btn-component danger" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>PRIVATE MODE <i style={{ marginLeft: "10px" }} className="fas fa-lock"></i></button> :
+                            <button onClick={() => { this.setQuizzPrivateMode.bind(this) }} className="main-btn-component success" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>PUBLIC MODE <i style={{ marginLeft: "10px" }} className="fas fa-lock-open"></i></button>
                         }
                     </div>
                 </div>
@@ -210,9 +258,9 @@ export default class QuizzEditor extends React.Component {
                             {/* POPUP CONFIRMATION OF QUESTION SUPRESSION */}
                             <ConfirmPopup
                                 actionProps={this.state.delQuestPopup.props}
-                                acceptAction={this.confirmQuestionDelete.bind(this)}
+                                acceptAction={this.handleDelete.bind(this)}
                                 cancelAction={() => { this.setState({ delQuestPopup: { active: false, props: {} } }) }}
-                                title="Please confirm your operation" message={`You are asking to delete a question from your quizz. Once deleted, a question can never be recovered.`}
+                                title={this.state.delQuestPopup.props.title} message={this.state.delQuestPopup.props.message}
                                 color="danger"
                                 active={this.state.delQuestPopup.active} />
                             {this.state.questions.map((question, key) => {

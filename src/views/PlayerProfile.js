@@ -30,14 +30,14 @@ export default class PlayerProfile extends React.Component {
 
     render() {
         return (
-            <div class="grid-container">
-                <div class="PlayerProfile">
+            <div className="grid-container">
+                <div className="PlayerProfile">
                     <div style={{display: "flex", alignItems: "center", fontSize: "40px"}}>
                         <img src="../../img/home.svg" className="avatar"/>
                         <h1 style={{color: "#fff", paddingLeft: "15px"}}>{this.state.playerData.username}</h1>
                     </div>
                 </div>
-                <div class="PlayerScore">
+                <div className="PlayerScore">
                     <div className="titleBloc">
                         Quizz played
                     </div>
@@ -54,7 +54,7 @@ export default class PlayerProfile extends React.Component {
                         }
                     </div>
                 </div>
-                <div class="PlayerQuizz">
+                <div className="PlayerQuizz">
                 <div className="titleBloc">
                         Quizz created
                     </div>

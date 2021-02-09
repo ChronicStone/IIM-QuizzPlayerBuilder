@@ -1,6 +1,6 @@
 import React from "react"
 import "../../scss/components/quizz/question-form-component.scss"
-import Btn from "../btn"
+
 export default class QuestionForm extends React.Component {
     constructor(props) {
         super(props)
@@ -14,7 +14,6 @@ export default class QuestionForm extends React.Component {
     }
 
     handleChangeQuestionInput(e) {
-        console.log(e)
         this.setState({question: {...this.state.question, questionInput: e.target.value}})
     }
 
@@ -25,7 +24,6 @@ export default class QuestionForm extends React.Component {
     }
 
     handleCorrectAwnserChange(key, e) {
-        console.log({target: e.target.checked})
         if(e.target.checked) {
             let awnsers = this.state.question.awnsers
             for(const itemKey in awnsers) awnsers[itemKey].isCorrectAwnser = false
