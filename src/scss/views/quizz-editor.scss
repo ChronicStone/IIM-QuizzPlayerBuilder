@@ -3,7 +3,7 @@
 .topNavMenu {
     height: 10vh;
     width: 100%;
-    background: #2A384B;
+    background: #2a384b;
     top: 0;
     left: 0;
     z-index: 9999;
@@ -50,7 +50,7 @@
         .quizzHeadSection {
             background: #fff;
             box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1);
-            padding: .7em;
+            padding: 0.7em;
             color: #1f2937;
             display: flex;
             align-items: center;
@@ -83,6 +83,8 @@
         }
 
         .questionTimeLine {
+            display: flex;
+            flex-direction: column;
             gap: 1em;
             .headBlock {
                 display: flex;
@@ -91,20 +93,20 @@
                 margin-bottom: 20px;
             }
             .questionNavItem {
-                padding: 0.5em;
+                padding: 1em;
                 background: #314055a9;
-                margin-bottom: 1em;
                 border-radius: 10px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                width: 99%;
                 cursor: pointer;
                 -webkit-border-radius: 10px;
                 -moz-border-radius: 10px;
                 -ms-border-radius: 10px;
                 -o-border-radius: 10px;
 
-                input[type=radio] {
+                input[type="radio"] {
                     margin-right: 10px;
                 }
 
@@ -113,9 +115,25 @@
                 }
             }
 
+            svg {
+                fill: $color-brand;
+                width: 30px;
+                height: 30px;
+                padding-left: 5px;
+                transition: 0.1s ease-in-out all;
+                cursor:pointer;
+                &:hover {
+                    fill: $error;
+                    transform: scale(1.1);
+                    -webkit-transform: scale(1.1);
+                    -moz-transform: scale(1.1);
+                    -ms-transform: scale(1.1);
+                    -o-transform: scale(1.1);
+                }
+            }
+
             .notSaved {
                 background: #6e3e3ea9;
-
             }
         }
     }

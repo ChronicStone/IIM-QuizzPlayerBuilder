@@ -41,6 +41,7 @@
   border: 1px solid $error;
   background-color: $error;
   &:hover {
+    background: transparent;
     color: $error
   }
 }
@@ -50,5 +51,14 @@
   background-color: $success;
   &:hover {
     color: $success
+  }
+}
+
+.dark {
+  border: 1px solid $color-font;
+  background-color: $color-font;
+  color: lightgrey;
+  &:hover {
+    color: $color-font
   }
 }

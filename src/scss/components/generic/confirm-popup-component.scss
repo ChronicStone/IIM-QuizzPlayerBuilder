@@ -1,0 +1,67 @@
+@import "../../helpers/variables";
+
+.popupGlobalContainer {
+    width: 100%;
+    height: 100vh;
+    z-index: 99999999999999999999;
+    background: rgba(0, 0, 0, 0.733);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+
+    .popupBox {
+        width: 40%;
+        min-width: 300px;
+        height: auto;
+        padding: .7em;
+        background: #fff;
+        color: #1f2937;
+        border-radius: 15px;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        -ms-border-radius: 15px;
+        -o-border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        .popupTitle {
+            padding: .7em;
+            background: $color-brand;
+            font-weight: bold;
+            font-size: 18px;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .title--danger {
+            background: $error;
+        }
+
+        .title--success {
+            background: $success;
+        }
+
+        .popupMessage {
+            padding: .5em;
+            font-size: 17px;
+            line-height: 20px;
+        }
+
+        .popupActions {
+            padding-top: 1em;
+            padding-bottom: .3em;
+            border-top: 1px solid lightgrey;
+            display: flex;
+            justify-content: space-evenly;
+        }
+    }
+}
