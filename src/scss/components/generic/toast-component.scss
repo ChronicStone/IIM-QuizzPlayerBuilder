@@ -1,0 +1,65 @@
+@import "../../helpers/variables";
+
+
+.alerts {
+	position: absolute;
+	top: 1em;
+    right: 1em;
+    z-index: 999999999999999999;
+	
+	.alert {
+        z-index: 999999999999999999;
+		padding: 1em;
+		background: #ffffff;
+		color: #181c21;
+		border-radius: 4px;
+		box-shadow: 0 3px 25px -5px rgba(0,0,0,.24);
+		position: relative;
+		overflow: hidden;
+		min-width: 240px;
+		margin-bottom: 1em;
+		
+		.alert--title {
+			font-weight: bold;
+            margin-bottom: .5em;
+            color: #2A384B;
+		}
+		
+		.alert--duration {
+			height: 4px;
+			background: rgba(0,0,0,.1);
+			width: 70%;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			animation: alertDuration 3s linear infinite;
+		}
+    }
+    
+    .alert--primary {
+        .alert--duration {
+            background: $color-brand;
+        }
+    }
+
+    .alert--success {
+        .alert--duration {
+            background: $success;
+        }
+    }
+
+    .alert--danger {
+        .alert--duration {
+            background: $error;
+        }
+    }
+}
+
+@keyframes alertDuration {
+	0% {
+		width: 0;
+	}
+	100% {
+		width: 100%;
+	}
+}

@@ -1,0 +1,152 @@
+@import "../helpers/variables";
+
+.topNavMenu {
+    height: 10vh;
+    width: 100%;
+    background: #2A384B;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    padding-left: 1em;
+    padding-right: 1em;
+    position: fixed;
+    box-shadow: $shadow-1;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .leftSide {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+    }
+
+    .rightSide {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        margin-right: 50px;
+    }
+}
+
+.mainLayout {
+    display: flex;
+    width: 100%;
+    height: 90vh;
+    position: fixed;
+    z-index: 9999;
+    background: red;
+    top: 10vh;
+    left: 0;
+
+    .leftSection {
+        width: 30%;
+        min-width: 300px;
+        background: #1f2937;
+        overflow-y: scroll;
+        color: lightgrey;
+        padding: 1.2em;
+        .quizzHeadSection {
+            background: #fff;
+            box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1);
+            padding: .7em;
+            color: #1f2937;
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            justify-content: space-between;
+            border-radius: 15px;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            -ms-border-radius: 15px;
+            -o-border-radius: 15px;
+
+            h3 {
+                font-size: 22px;
+                margin: 0.1em;
+                text-transform: uppercase;
+            }
+
+            p {
+                padding: 0.8em;
+                color: #1f2937;
+                background: #fff;
+                margin: 0;
+                margin-top: 10px;
+                border-radius: 15px;
+                -webkit-border-radius: 15px;
+                -moz-border-radius: 15px;
+                -ms-border-radius: 15px;
+                -o-border-radius: 15px;
+            }
+        }
+
+        .questionTimeLine {
+            gap: 1em;
+            .headBlock {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            .questionNavItem {
+                padding: 0.5em;
+                background: #314055a9;
+                margin-bottom: 1em;
+                border-radius: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                -ms-border-radius: 10px;
+                -o-border-radius: 10px;
+
+                input[type=radio] {
+                    margin-right: 10px;
+                }
+
+                span {
+                    width: 100%;
+                }
+            }
+
+            .notSaved {
+                background: #6e3e3ea9;
+
+            }
+        }
+    }
+
+    .rightSection {
+        width: 70%;
+        background: lightgrey;
+        overflow-y: scroll;
+        padding: 0;
+    }
+
+    .rightSection,
+    .leftSection {
+        &::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background-color: rgba(221, 221, 221, 0.274);
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+        }
+
+        &::-webkit-scrollbar {
+            width: 8px;
+            background-color: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            background-color: #262429;
+        }
+    }
+}

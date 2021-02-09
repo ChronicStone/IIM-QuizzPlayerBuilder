@@ -9,6 +9,8 @@ import QuizzDetails from "../views/QuizzPlayer/QuizzDetails.js";
 import QuizzPlayer from "../views/QuizzPlayer/QuizzPlayer.js";
 import QuizzResults from "../views/QuizzPlayer/QuizzResults.js";
 import PlayerProfile from "../views/PlayerProfile.js";
+import QuizzEditorList from "../views/QuizzEditor/QuizzList.js";
+import QuizzEditor from "../views/QuizzEditor/QuizzEditor.js";
 
 const Error404 = () => {
   return (
@@ -40,6 +42,8 @@ export default class Routeur extends React.Component {
           <Route exact path='/quizz/player/:quizzId' component={withRouter(QuizzPlayer)} />
           <Route exact path='/quizz/results/:playerScoreId' component={withRouter(QuizzResults)} />
           <Route exact path='/player/profile/:playerId' component={withRouter(PlayerProfile)} />
+          <Route exact path='/quizz/editor/' component={withRouter(QuizzEditorList)} />  
+          <Route exact path='/quizz/editor/:quizzId' component={withRouter(QuizzEditor)} />  
           <Route path="*" component={Error404}/>
         </Switch>
       </BrowserRouter>

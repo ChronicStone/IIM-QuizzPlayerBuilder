@@ -1,8 +1,7 @@
-@import '../../helpers/variables';
+@import "../../helpers/variables";
 
-.create-quizz-component{
-  
-    .quizz-form-component{
+.create-quizz-component {
+    .quizz-form-component {
         position: fixed;
         top: 0;
         right: 0;
@@ -15,32 +14,45 @@
         justify-content: center;
         align-items: center;
         z-index: $z-index-modal;
-    
-    
-        .contain{
+
+        .contain {
             width: 50%;
             margin: auto;
             background-color: $white;
             padding: 20px;
             border-radius: $radius;
+            position: relative;
 
-            input{
+            .closeIcon {
+                position: absolute;
+                height: 25px;
+                width: 25px;
+                top: 15px;
+                right: 15px;
+                fill: lightgrey;
+                transition: 0.3s ease-in-out all;
+                cursor:pointer;
+                &:hover {
+                    fill: $color-brand;
+                }
+            }
+
+            input {
                 margin: 20px 0;
             }
 
-            textarea{
+            textarea {
                 margin-bottom: 20px;
                 height: 100px;
             }
         }
 
-        .error-form{
+        .error-form {
             margin-top: 20px;
 
-            p{
-                color:$error
+            p {
+                color: $error;
             }
         }
-
     }
 }

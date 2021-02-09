@@ -1,0 +1,76 @@
+@import "../../helpers/variables";
+
+.questionFormContainer {
+    margin: 2em;
+
+    .questionBloc {
+        width: auto;
+        height: auto;
+        background: #1f2937;
+        color: lightgrey;
+        border-radius: 15px;
+        padding: 1.2em;
+        box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 0.7em;
+
+        label {
+            font-weight: bold;
+        }
+    }
+
+    .awnsersBloc {
+        margin-top: 1.2em;
+        width: auto;
+        height: auto;
+        background: #fff;
+        color: #1f2937;
+        border-radius: 15px;
+        padding: 1.2em;
+        box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1);
+
+        label {
+            font-weight: bold;
+        }
+
+        .awnserItemList {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+
+            .awnserItem {
+                background: lightgrey;
+                color: #1f2937;
+                border-radius: 7px;
+                padding: 1em;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                -webkit-border-radius: 7px;
+                -moz-border-radius: 7px;
+                -ms-border-radius: 7px;
+                -o-border-radius: 7px;
+
+                div {
+                    width: 97%;
+                }
+
+                input {
+                    margin-left: 9px;
+                }
+            }
+        }
+    }
+
+    .actionsBloc {
+        margin-top: 1em;
+        width: auto;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        div {
+            width: 50%;
+        }
+    }
+}

@@ -23,7 +23,6 @@ const LogInOut = ({history}) => {
 }
 
 const MenuItem = ({history, location, slug, name}) => {
-    /* console.log({location}) */
     function triggerRoute() {
         history.push(slug)
     }
@@ -39,13 +38,9 @@ export default class Header extends React.Component {
         this.props.history.push("/login")
     }
 
-    componentDidMount() {
-        console.log(this)
-    }
-
     render() {
         return (
-            <div className="header-component">
+            <div className="header-component" style={{background: "#fff"}}>
                 <div className="blocLeft">
                     <MenuItem history={this.props.history} location={this.props.location} slug={'/'} name="Home" />
                     <MenuItem history={this.props.history} location={this.props.location} slug={'/quizz/list'} name="Quizz list" />

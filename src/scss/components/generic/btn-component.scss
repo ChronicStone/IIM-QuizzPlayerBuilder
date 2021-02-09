@@ -20,7 +20,7 @@
   
     &:hover{
       color: $color-brand;
-      background-color: $white;
+      background-color: transparent;
     }
 }
 
@@ -34,5 +34,21 @@
   &:hover{
     color: $white;
     background-color: $color-brand;
+  }
+}
+
+.danger {
+  border: 1px solid $error;
+  background-color: $error;
+  &:hover {
+    color: $error
+  }
+}
+
+.success {
+  border: 1px solid $success;
+  background-color: $success;
+  &:hover {
+    color: $success
   }
 }
