@@ -2,9 +2,9 @@ import './scss/helpers/_variables.scss'
 import './scss/views/container-component.scss'
 import './scss/components/generic/toast-component.scss'
 import Routeur from "./routes/Routeur"
-import Header from "./components/header"
 import { useHistory } from "react-router-dom";
 import jwt from "jsonwebtoken"
+
 
 export default function App() {
   let history = useHistory();

@@ -29,7 +29,7 @@ export default class IndexPage extends React.Component {
           <meta name="description" content="get the weather of paris by Paul Santamaria" />
           <meta name="theme-color" content="#fff" /> 
       </Helmet>
-        <img style={{position: "fixed", left: "50%", transform: 'translateX(-50%)', top: 0, zIndex: -10000, height: "390px"}} src="home.svg"/>
+        <img style={{position: "fixed", left: "50%", transform: 'translateX(-50%)', top: 0, zIndex: -10000, height: "390px"}} src={window.location.origin + '/img/home.svg'}/>
         <section className="banner-component">
           <h1 className="hero-title"><span>Hello World,<br /> Welcome to Paul and Cyprien React project</span><br /> Fast Saas quizz and weather application</h1>
           <h2 className="hero-description">In this project we've created an api quizz in node.js with Express en Sequelize<br />You can create and manage your own quizz and share it to a friend !</h2>

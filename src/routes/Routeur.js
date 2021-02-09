@@ -15,7 +15,7 @@ import QuizzEditor from "../views/QuizzEditor/QuizzEditor.js";
 const Error404 = () => {
   return (
       <div style={{top: 0, left: 0, position: "fixed", width: "100%", height: "100vh", display: "grid", placeItems: "center", zIndex: -100}}>
-          <img style={{height: "500px"}} src={window.location.origin + '/404.svg'} alt="err404"/>
+          <img style={{height: "500px"}} src={window.location.origin + '/img/404.svg'} alt="err404"/>
       </div>
   )
 }

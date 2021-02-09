@@ -37,7 +37,7 @@ export default class QuizzResults extends React.Component {
                     <div style={{width: "50%", height: "fit-content", padding: "2em", textAlign: "center", borderRadius: '15px', boxShadow: "3px 3px 20px rgba(0,0,0,.2)"}}>
                         <h2 style={{color: "#500ad2", fontFamily: "'Montserrat', sans-serif", fontSize: "30px"}}>Congratulations !</h2>
                         
-                        <img style={{height: "160px"}} src="../../congrat.svg"/>
+                        <img style={{height: "160px"}} src={window.location.origin + '/img/congrat.png'}/>
                         <p>You have successfuly completed the quizz <span style={{color: "#500ad2"}}>"{this.state.quizz.title}"</span></p>
                         <p>Your score : {this.state.playerScoreData.playerScore} / {this.state.playerScoreData.quizzTotalScore}</p>
                         <div style={{display: "flex", justifyContent: "space-evenly"}}>

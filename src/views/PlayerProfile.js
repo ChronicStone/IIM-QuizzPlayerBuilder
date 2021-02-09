@@ -33,7 +33,7 @@ export default class PlayerProfile extends React.Component {
             <div class="grid-container">
                 <div class="PlayerProfile">
                     <div style={{display: "flex", alignItems: "center", fontSize: "40px"}}>
-                        <img src="../../home.svg" className="avatar"/>
+                        <img src="../../img/home.svg" className="avatar"/>
                         <h1 style={{color: "#fff", paddingLeft: "15px"}}>{this.state.playerData.username}</h1>
                     </div>
                 </div>
