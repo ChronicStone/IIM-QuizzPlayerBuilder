@@ -1,6 +1,6 @@
 import React from "react"
 import Btn from "../../components/btn"
-import axios from "../../_helpers/axios"
+import api from "../../_helpers/axios"
 
 const S3_BASE_URL = 'https://iim-quizz-project.s3.eu-central-1.amazonaws.com'
 
@@ -17,7 +17,7 @@ export default class QuizzResults extends React.Component {
     componentDidMount() {
         if(!localStorage.getItem('player')) this.props.history.push('/login')
         console.log(this.props)
-        axios.get(`/playerScore/${this.props.match.params.playerScoreId}`)
+        api.get(`/playerScore/${this.props.match.params.playerScoreId}`)
         .then((response) => {
             if(!response.data.data) console.log(response)
             else this.setState({fetched: true, playerScoreData: response.data.data, quizz: response.data.data.quizz})

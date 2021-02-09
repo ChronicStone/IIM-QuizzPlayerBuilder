@@ -1,6 +1,6 @@
 import React  from "react"
 import "../../scss/components/quizz/quizz-card-component.scss"
-import axios from "../../_helpers/axios"
+import api from "../../_helpers/axios"
 import Btn from "../btn"
 
 
@@ -29,7 +29,7 @@ class QuizzCardList extends React.Component {
     componentDidMount() {
         console.log(this)
         this.setState({...this.state, isFetching: true});
-        axios.get('/quizz')
+        api.get('/quizz')
         .then(response => {
             console.log(response)
             this.setState({quizzList: response.data.data, isFetching: false});

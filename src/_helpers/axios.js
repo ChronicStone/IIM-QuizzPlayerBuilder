@@ -1,14 +1,13 @@
 import axios from 'axios'
 // import jwt from "jsonwebtoken"
-
-export default axios.create({
+const api = axios.create({
     baseURL: process.env.REACT_APP_QUIZZ_API
-    // You can add your headers here
 })
 
-axios.interceptors.request.use(
+api.interceptors.request.use(
     config => {
-        const token = localStorage.getItem("accessToken")
+        const token = localStorage.getItem('player') ? JSON.parse(localStorage.getItem('player')).accessToken : null
+        console.log({token})
         config.headers['x-access-token'] = token || "_no_user"
         config.headers['Content-Type'] = 'application/json'
 
@@ -26,3 +25,5 @@ axios.interceptors.request.use(
         Promise.reject(error)
     }
 )
+
+export default api

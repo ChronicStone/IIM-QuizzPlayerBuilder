@@ -1,5 +1,5 @@
 import React from "react"
-import axios from "../_helpers/axios"
+import api from "../_helpers/axios"
 import "../scss/views/player-profile.scss";
 import dayjs from "dayjs"
 export default class PlayerProfile extends React.Component {
@@ -19,7 +19,7 @@ export default class PlayerProfile extends React.Component {
 
     componentDidMount() {
         if (!localStorage.getItem('player')) this.props.history.push('/login')
-        axios.get(`/player/${this.getPlayerId()}`)
+        api.get(`/player/${this.getPlayerId()}`)
             .then((response) => {
                 this.setState({playerData: response.data.data, playerScores: response.data.data.playerScores, playerQuizz: response.data.data.quizzs})
             })

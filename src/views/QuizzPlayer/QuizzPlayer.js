@@ -1,5 +1,5 @@
 import React from "react"
-import axios from "../../_helpers/axios"
+import api from "../../_helpers/axios"
 import QuestionCard from "../../components/QuizzPlayer/QuestionCard"
 
 const TopBar = ({currentQuestion, totalNbQuestions, quizzTitle}) => {
@@ -49,7 +49,7 @@ export default class QuizzPlayer extends React.Component {
     }
 
     savePlayerScore = () => {
-        axios.post('/playerScore/create', this.state.playerScoreData)
+        api.post('/playerScore/create', this.state.playerScoreData)
             .then(response => {
                 this.setState({ quizzEndLoading: false })
                 this.props.history.push(`/quizz/results/${response.data.playerScoreId}`)
@@ -61,7 +61,7 @@ export default class QuizzPlayer extends React.Component {
 
     componentDidMount() {
         if(!localStorage.getItem('player')) this.props.history.push('/login')
-        axios.get(`/quizz/${this.props.match.params.quizzId}`)
+        api.get(`/quizz/${this.props.match.params.quizzId}`)
             .then(async response => {
                 if (!response.data.data) this.props.history.push('/quizz/list')
                 let quizzData = response.data.data

@@ -1,6 +1,6 @@
 import React  from "react"
 import "../../scss/components/quizz/quizz-card-component.scss"
-import axios from "../../_helpers/axios"
+import api from "../../_helpers/axios"
 import Btn from "../../components/btn"
 
 const LeaderboardItem = ({score, rank, history}) => {
@@ -46,7 +46,7 @@ class QuizzDetails extends React.Component {
         console.log(this)
         if(!localStorage.getItem('player')) this.props.history.push('/login')
         this.setState({...this.state, isFetching: true});
-        axios.get(`/quizz/${this.props.match.params.quizzId}`)
+        api.get(`/quizz/${this.props.match.params.quizzId}`)
         .then(response => {
             console.log(response)
             this.setState({quizzData: response.data.data, playerScores: response.data.data.playerScores, isFetching: false});

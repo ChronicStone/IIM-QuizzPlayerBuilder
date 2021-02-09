@@ -1,5 +1,5 @@
 import React from "react"
-import axios from "../../_helpers/axios"
+import api from "../../_helpers/axios"
 
 
 export default class QuizzEditor extends React.Component {
