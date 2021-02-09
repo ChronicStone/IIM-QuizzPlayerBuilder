@@ -81,8 +81,8 @@ export default class LoginForm extends React.Component {
                     </div>
 
                     {!this.state.error.state ? '' :
-                        <div style={{ marginTop: "20px", color: "#fff", background: "#F5462E", padding: "1em", borderRadius: "7px" }}>
-                            {this.state.error.description}
+                        <div className={"error-form"}>
+                          <p>  {this.state.error.description}</p>
                         </div>
                     }
                 </form>

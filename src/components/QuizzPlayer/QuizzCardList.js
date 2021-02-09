@@ -3,7 +3,6 @@ import "../../scss/components/quizz/quizz-card-component.scss"
 import api from "../../_helpers/axios"
 import Btn from "../btn"
 
-
 const QuizzCard = ({quizzData}) => {
     return (
         <div className="quizzCard" style={{background: "#fff"}}>   
@@ -31,7 +30,6 @@ class QuizzCardList extends React.Component {
         this.setState({...this.state, isFetching: true});
         api.get('/quizz')
         .then(response => {
-            console.log(response)
             this.setState({quizzList: response.data.data, isFetching: false});
         }).catch((err) => {
             console.error(err)

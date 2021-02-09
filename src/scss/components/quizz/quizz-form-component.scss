@@ -1,0 +1,46 @@
+@import '../../helpers/variables';
+
+.create-quizz-component{
+  
+    .quizz-form-component{
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: $z-index-modal;
+    
+    
+        .contain{
+            width: 50%;
+            margin: auto;
+            background-color: $white;
+            padding: 20px;
+            border-radius: $radius;
+
+            input{
+                margin: 20px 0;
+            }
+
+            textarea{
+                margin-bottom: 20px;
+                height: 100px;
+            }
+        }
+
+        .error-form{
+            margin-top: 20px;
+
+            p{
+                color:$error
+            }
+        }
+
+    }
+}

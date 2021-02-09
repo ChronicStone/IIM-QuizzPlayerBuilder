@@ -1,9 +1,5 @@
 import React from "react"
-import "../scss/components/generic/header-component.scss"
-import { HashLink as Link } from 'react-router-hash-link';
-import { BrowserRouter as Router } from "react-router-dom";
-import Btn from "./btn"
-
+import "../scss/components/generic/header-component.scss";
 
 const LogInOut = ({history}) => {
     function LogOut() {
@@ -21,14 +17,13 @@ const LogInOut = ({history}) => {
                 localStorage.getItem('player') ?
                 <button className="main-btn-component inverse" inverse={"True"} onClick={LogOut}>Logout</button> : 
                 <button className="main-btn-component" onClick={LogIn}>Login</button>
-
             }
         </div>
     )
 }
 
 const MenuItem = ({history, location, slug, name}) => {
-    console.log({location})
+    /* console.log({location}) */
     function triggerRoute() {
         history.push(slug)
     }
