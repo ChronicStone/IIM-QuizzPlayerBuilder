@@ -8,7 +8,8 @@ export default axios.create({
 
 axios.interceptors.request.use(
     config => {
-        const token = localStorage.getItem("accessToken")
+        console.log("gf")
+        const token = localStorage.getItem('player') ? JSON.parse(localStorage.getItem('player')).accessToken : null
         config.headers['x-access-token'] = token || "_no_user"
         config.headers['Content-Type'] = 'application/json'
 
@@ -20,7 +21,6 @@ axios.interceptors.request.use(
         // if (diff < 0) {
         //     localStorage.removeItem('accessToken')
         // }
-
         return config
     }, error => {
         Promise.reject(error)

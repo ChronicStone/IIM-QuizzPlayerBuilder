@@ -29,7 +29,5 @@ $transition:0.7s;
 $cubicOnly: cubic-bezier(.5, .6, .51, .92);
 $cubic: .3s $cubicOnly;
 
-$z-index: (
-  null: 0,
-  flash: 1,
-);
+$z-index-null: 0;
+$z-index-modal: 1;

@@ -1,5 +1,6 @@
 import React from "react"
 import QuizzCardList from "../../components/QuizzPlayer/QuizzCardList";
+import QuizzForm from "../../components/QuizzEditor/QuizzForm";
 
 export default class QuizzList extends React.Component {
     constructor(props) {

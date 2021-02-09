@@ -22,8 +22,22 @@
         input{
             margin:15px 0;
         }
+
+        textarea{
+            margin-bottom: 15px 0;
+            height: 100px;
+        }
+        
         a{  
             margin:10px 0;
+        }
+
+        .error-form{
+            margin-top: 20px;
+
+            p{
+                color:$error
+            }
         }
         
     }
