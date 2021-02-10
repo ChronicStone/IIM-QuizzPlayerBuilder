@@ -36,7 +36,7 @@ export default class QuizzList extends React.Component {
                             required 
                         />
                     </div>
-                    <QuizzCardList searchFilter={this.state.titleFilter}/>
+                    <QuizzCardList history={this.props.history} searchFilter={this.state.titleFilter}/>
                 </div>
             </div>
         )

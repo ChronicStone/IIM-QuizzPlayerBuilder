@@ -16,7 +16,7 @@
         min-width: 12em;
         border-radius: 10px;
         background-color: $color-brand;
-        box-shadow: 0 3px 16px rgba(black, 0.15);
+        box-shadow: 3px 3px 25px rgba(black, .2);
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
         -ms-border-radius: 10px;
@@ -29,9 +29,14 @@
             border: 0.4em solid transparent;
             border-top-color: $color-brand;
             left: 50%;
+            transform: translateX(-50%);
             z-index: 100000000;
             transition: top $transTime ease;
-        }
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+}
     }
     &.is-visible {
         z-index: 999999999999999999999999999999999;
