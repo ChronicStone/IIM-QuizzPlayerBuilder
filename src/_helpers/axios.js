@@ -24,4 +24,13 @@ api.interceptors.request.use(
     }
 )
 
+api.interceptors.response.use((response) => {
+    if(response.status === 401) {
+        localStorage.removeItem('player')
+   }
+    return response;
+}, (error) => {
+    return Promise.reject(error.message);
+});
+
 export default api

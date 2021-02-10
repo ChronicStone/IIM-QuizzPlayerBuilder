@@ -2,11 +2,19 @@ import React  from "react"
 import "../../scss/components/quizz/quizz-card-component.scss"
 import api from "../../_helpers/axios"
 import Btn from "../btn"
+import Tooltip from "../tooltip"
 
-const QuizzCard = ({quizzData}) => {
+const QuizzCard = ({quizzData, history}) => {
     return (
         <div className="quizzCard" style={{background: "#fff"}}>   
-            <h3 className="title">{quizzData.title}</h3>
+            <div className="titleBloc">
+                <h3 className="title">{quizzData.title}</h3>
+                <Tooltip label={(<div style={{width: "100%", textAlign: "center"}}>Created by <span style={{fontWeight: "bold"}}>{quizzData.player.username}</span></div>)}>
+                    <img onClick={() => {history.push(`/player/profile/${quizzData.player.id}`)}} className="avatar" src={process.env.REACT_APP_S3_BUCKET_URL + quizzData.player.avatar}/>
+                </Tooltip>
+            </div>
+            <div>
+            </div>
             <hr style={{opacity: .3, backgroundColor: "lightgrey"}}/>
             <p className="description">{quizzData.description}</p>
             <div style={{display:"grid", placeItems: "center", width: "100%"}}>
@@ -44,7 +52,7 @@ class QuizzCardList extends React.Component {
                     <p>'Fetching quizz list ...'</p> :
                     <div className="quizzListGrid">
                         {this.state.quizzList.filter(quizz => quizz.title.toLowerCase().includes(this.props.searchFilter.toLowerCase())).map((quizz, key) => {
-                            return (<QuizzCard key={key} quizzData={quizz}/>)
+                            return (<QuizzCard history={this.props.history} key={key} quizzData={quizz}/>)
                         })}
                     </div>
                 }    

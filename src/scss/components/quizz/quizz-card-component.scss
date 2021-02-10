@@ -4,26 +4,56 @@
     display: grid;
     grid-gap: 2em;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    
 }
-
 
 .quizzCard {
     padding: $padding;
     box-shadow: $shadow-1;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     color: rgb(241, 241, 241);
     border-radius: 10px;
     width: auto;
     height: auto;
 
-    .title {
-        color: $color-brand;
-        text-transform: uppercase;
+    .titleBloc {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .title {
+            color: $color-brand;
+            text-transform: uppercase;
+            width: calc(100% - 70px);
+        }
+
+        .avatar {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border: 2px solid transparent;
+            transition: all ease-in-out 0.2s;
+            -webkit-transition: all ease-in-out 0.2s;
+            -moz-transition: all ease-in-out 0.2s;
+            -ms-transition: all ease-in-out 0.2s;
+            -o-transition: all ease-in-out 0.2s;
+            &:hover {
+                border: 2px solid $color-brand;
+            }
+        }
+
+        .creator {
+            color: #1f2937;
+        }
     }
 
     .description {
-        font-size: 13px; 
+        font-size: 13px;
         color: gray;
     }
 }

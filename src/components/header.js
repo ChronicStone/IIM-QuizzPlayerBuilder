@@ -32,16 +32,35 @@ const MenuItem = ({history, location, slug, name}) => {
     )
 }
 export default class Header extends React.Component {
-
+    constructor(props) {
+        super(props)
+        this.state = {
+            pageYOffset: 0,
+            showHeader: true
+        }
+    }
     logout() {
         localStorage.clear()
         this.props.history.push("/login")
     }
 
+    componentDidMount(){
+        window.addEventListener('scroll', (e) => {
+            if(this.state.pageYOffset > window.pageYOffset )  this.setState({showHeader: true})
+            else this.setState({showHeader: false})
+            this.setState({pageYOffset: window.pageYOffset})
+        })
+
+        window.addEventListener('storage', () => {
+            console.log('token cleared')
+            if(!localStorage.getItem('player')) this.props.history.push('/login')
+          })
+    }
+
     render() {
         return (
-            <div className="header-component" style={{background: "#fff"}}>
-                <div className="blocLeft">
+            <div className={`header-component ${this.state.showHeader || this.state.pageYOffset === 0 ? '' : 'hide'}`}>
+                <div className={`blocLeft`}>
                     <MenuItem history={this.props.history} location={this.props.location} slug={'/'} name="Home" />
                     <MenuItem history={this.props.history} location={this.props.location} slug={'/quizz/list'} name="Quizz list" />
                     <MenuItem history={this.props.history} location={this.props.location} slug={'/quizz/editor'} name="Quizz editor" />

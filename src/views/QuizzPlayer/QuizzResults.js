@@ -2,7 +2,7 @@ import React from "react"
 import Btn from "../../components/btn"
 import api from "../../_helpers/axios"
 
-const S3_BASE_URL = 'https://iim-quizz-project.s3.eu-central-1.amazonaws.com'
+const S3_BASE_URL = process.env.REACT_APP_S3_BUCKET_URL
 
 export default class QuizzResults extends React.Component {
     constructor(props) {
@@ -27,7 +27,7 @@ export default class QuizzResults extends React.Component {
     }
 
     downloadCertificate () {
-        window.open(`${S3_BASE_URL}/${this.state.playerScoreData.certificate}`, "_blank");
+        window.open(`${S3_BASE_URL}${this.state.playerScoreData.certificate}`, "_blank");
     }
 
     render() {
@@ -37,7 +37,7 @@ export default class QuizzResults extends React.Component {
                     <div style={{width: "50%", height: "fit-content", padding: "2em", textAlign: "center", borderRadius: '15px', boxShadow: "3px 3px 20px rgba(0,0,0,.2)"}}>
                         <h2 style={{color: "#500ad2", fontFamily: "'Montserrat', sans-serif", fontSize: "30px"}}>Congratulations !</h2>
                         
-                        <img style={{height: "160px"}} src={window.location.origin + '/img/congrat.png'}/>
+                        <img style={{height: "160px"}} src={window.location.origin + '/img/congrat.svg'}/>
                         <p>You have successfuly completed the quizz <span style={{color: "#500ad2"}}>"{this.state.quizz.title}"</span></p>
                         <p>Your score : {this.state.playerScoreData.playerScore} / {this.state.playerScoreData.quizzTotalScore}</p>
                         <div style={{display: "flex", justifyContent: "space-evenly"}}>
