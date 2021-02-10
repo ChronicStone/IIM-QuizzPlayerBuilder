@@ -10,9 +10,9 @@ const LeaderboardItem = ({ score, rank, history }) => {
             <span style={{ display: "flex", alignItems: "center" }}>
                 {rank}.
                 <span style={{ fontWeight: "bolder", cursor: "pointer", marginRight: "20px" }}>{score.player.username}</span>
-                {rank === 1 ? <img style={{ height: "20px", width: "20px" }} src='https://www.flaticon.com/svg/vstatic/svg/2583/2583344.svg?token=exp=1612732044~hmac=affdd0e194bae124b019fe4dfd0b9c50' /> : ''}
-                {rank === 2 ? <img style={{ height: "20px", width: "20px" }} src='https://www.flaticon.com/svg/vstatic/svg/179/179251.svg?token=exp=1612732244~hmac=baeed20d7843d217293ecbf0628ee9a1' /> : ''}
-                {rank === 3 ? <img style={{ height: "20px", width: "20px" }} src='https://www.flaticon.com/svg/vstatic/svg/179/179250.svg?token=exp=1612732276~hmac=ed701bcc0eae24636300ebf4d45651af' /> : ''}
+                {rank === 1 ? <img style={{ height: "20px", width: "20px" }} src={window.location.origin + '/img/gold.svg'} /> : ''}
+                {rank === 2 ? <img style={{ height: "20px", width: "20px" }} src={window.location.origin + '/img/silver.svg'} /> : ''}
+                {rank === 3 ? <img style={{ height: "20px", width: "20px" }} src={window.location.origin + '/img/bronze.svg'} /> : ''}
             </span>
             <span>{score.playerScore} / {score.quizzTotalScore}</span>
         </div>
@@ -76,7 +76,7 @@ class QuizzDetails extends React.Component {
                             <hr style={{ opacity: .3, backgroundColor: "lightgrey" }} />
                             <p className="description">{this.state.quizzData.description}</p>
                             <div style={{ display: "grid", placeItems: "center", width: "100%" }}>
-                                <Btn content="QUIZZ DETAILS" slug={`/quizz/details/${this.state.quizzData.id}`} />
+                                <Btn content="PLAY QUIZZ" slug={`/quizz/player/${this.state.quizzData.id}`} />
                             </div>
                         </div>
                         <div style={{ marginTop: "25px", padding: "1.2em", background: "#fff", boxShadow: "3px 3px 20px rgba(0, 0, 0, .1)", borderRadius: "15px" }}>

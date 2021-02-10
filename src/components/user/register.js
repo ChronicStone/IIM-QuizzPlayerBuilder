@@ -60,7 +60,10 @@ export default class RegisterForm extends React.Component {
     }
 
     async handleForm(e) {
-        this.setState({success: true})
+        this.setState({success: false, error: {
+            state: false,
+            description: ""
+        }})
         e.preventDefault()
         const username = this.state.username
         const password = md5(this.state.password)
@@ -113,7 +116,7 @@ export default class RegisterForm extends React.Component {
                             placeholder="Username"
                             required
                         />
-                        <img style={{height: "30px", width: "30px", marginLeft: "10px"}} src={this.state.username === "" ? 'https://www.flaticon.com/svg/vstatic/svg/1828/1828843.svg?token=exp=1612789934~hmac=8c8ee0bc37b178912a1d39dd387a8b94' : 'https://www.flaticon.com/svg/vstatic/svg/845/845646.svg?token=exp=1612789916~hmac=1edce27864222e3bc7e693f559f95127'}/>
+                        <img style={{height: "30px", width: "30px", marginLeft: "10px"}} src={this.state.username === "" ? window.location.origin + '/img/err.svg' : window.location.origin + '/img/ok.svg'}/>
                     </div>
 
                     <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
@@ -126,7 +129,7 @@ export default class RegisterForm extends React.Component {
                             placeholder='Password'
                             required
                         />
-                        <img style={{height: "30px", width: "30px", marginLeft: "10px"}} src={this.state.password === "" || this.state.password != this.state.confirmPassword ? 'https://www.flaticon.com/svg/vstatic/svg/1828/1828843.svg?token=exp=1612789934~hmac=8c8ee0bc37b178912a1d39dd387a8b94' : 'https://www.flaticon.com/svg/vstatic/svg/845/845646.svg?token=exp=1612789916~hmac=1edce27864222e3bc7e693f559f95127'}/>
+                        <img style={{height: "30px", width: "30px", marginLeft: "10px"}} src={this.state.password === "" || this.state.password != this.state.confirmPassword ? window.location.origin + '/img/err.svg' : window.location.origin + '/img/ok.svg'}/>
                     </div>
 
                     <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
@@ -139,7 +142,7 @@ export default class RegisterForm extends React.Component {
                             placeholder='Confirm password'
                             required
                         />
-                        <img style={{height: "30px", width: "30px", marginLeft: "10px"}} src={this.state.confirmPassword === "" || this.state.password != this.state.confirmPassword ? 'https://www.flaticon.com/svg/vstatic/svg/1828/1828843.svg?token=exp=1612789934~hmac=8c8ee0bc37b178912a1d39dd387a8b94' : 'https://www.flaticon.com/svg/vstatic/svg/845/845646.svg?token=exp=1612789916~hmac=1edce27864222e3bc7e693f559f95127'}/>
+                        <img style={{height: "30px", width: "30px", marginLeft: "10px"}} src={this.state.confirmPassword === "" || this.state.password != this.state.confirmPassword ? window.location.origin + '/img/err.svg' : window.location.origin + '/img/ok.svg'}/>
                     </div>
 
                     <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
@@ -150,7 +153,7 @@ export default class RegisterForm extends React.Component {
                                 <span>{this.state.avatar ? this.state.avatar.name : 'Choose a file'}</span>
                             </label>
                         </div>
-                        <img style={{height: "30px", width: "30px", marginLeft: "10px", marginBottom: "10px"}} src={!this.state.avatar ? 'https://www.flaticon.com/svg/vstatic/svg/1828/1828843.svg?token=exp=1612789934~hmac=8c8ee0bc37b178912a1d39dd387a8b94' : 'https://www.flaticon.com/svg/vstatic/svg/845/845646.svg?token=exp=1612789916~hmac=1edce27864222e3bc7e693f559f95127'}/>
+                        <img style={{height: "30px", width: "30px", marginLeft: "10px", marginBottom: "10px"}} src={!this.state.avatar ? window.location.origin + '/img/err.svg' : window.location.origin + '/img/ok.svg'}/>
                     </div>
 
                     

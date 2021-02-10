@@ -25,10 +25,6 @@ export default class Routeur extends React.Component {
     super(props)
   }
 
-  componentDidMount() {
-    console.log(this.props.history)
-  }
-
   render() {
     const HeaderWithRouter = withRouter(Header);
     return (

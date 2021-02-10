@@ -9,13 +9,26 @@
     justify-content: flex-end;
     align-items: center;
     width: 100%;
-    .rightBloc {
+    transition: .2s ease-in-out all     ;
+    -webkit-transition: .2s ease-in-out all     ;
+    -moz-transition: .2s ease-in-out all     ;
+    -ms-transition: .2s ease-in-out all     ;
+    -o-transition: .2s ease-in-out all     ;
+    .rightBloc{
         margin-right: 50px;
     }
 
     .leftBloc {
         margin-left: 50px;
     }
+
+    &.hide {
+        transform: translateY(-100% )    ;
+        -webkit-transform: translateY(-100% )    ;
+        -moz-transform: translateY(-100% )    ;
+        -ms-transform: translateY(-100% )    ;
+        -o-transform: translateY(-100% )    ;
+}
 
 
 }
