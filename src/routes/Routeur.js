@@ -38,6 +38,7 @@ export default class Routeur extends React.Component {
           <Route exact path='/quizz/player/:quizzId' component={withRouter(QuizzPlayer)} />
           <Route exact path='/quizz/results/:playerScoreId' component={withRouter(QuizzResults)} />
           <Route exact path='/player/profile/:playerId' component={withRouter(PlayerProfile)} />
+          <Route exact path='/player/profile/' component={withRouter(PlayerProfile)} />
           <Route exact path='/quizz/editor/' component={withRouter(QuizzEditorList)} />  
           <Route exact path='/quizz/editor/:quizzId' component={withRouter(QuizzEditor)} />  
           <Route path="*" component={Error404}/>

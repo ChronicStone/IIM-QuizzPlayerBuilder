@@ -9,6 +9,7 @@ const LeaderboardItem = ({ score, rank, history }) => {
         <div onClick={() => { history.push(`/player/profile/${score.playerId}`) }} style={{ background: "#500ad2", color: "#fff", padding: '1em', display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "15px", boxShadow: '3px 3px 20px rgba(0,0,0,.1)', borderRadius: '10px', cursor: "pointer" }}>
             <span style={{ display: "flex", alignItems: "center" }}>
                 {rank}.
+                <img style={{width: "30px", height: "30px", borderRadius: '50%', marginLeft: "10px", marginRight: "10px"}} src={process.env.REACT_APP_S3_BUCKET_URL + score.player.avatar} />
                 <span style={{ fontWeight: "bolder", cursor: "pointer", marginRight: "20px" }}>{score.player.username}</span>
                 {rank === 1 ? <img style={{ height: "20px", width: "20px" }} src={window.location.origin + '/img/gold.svg'} /> : ''}
                 {rank === 2 ? <img style={{ height: "20px", width: "20px" }} src={window.location.origin + '/img/silver.svg'} /> : ''}
