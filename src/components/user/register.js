@@ -60,6 +60,7 @@ export default class RegisterForm extends React.Component {
     }
 
     async handleForm(e) {
+        this.setState({success: true})
         e.preventDefault()
         const username = this.state.username
         const password = md5(this.state.password)
@@ -76,6 +77,7 @@ export default class RegisterForm extends React.Component {
                 console.log(res)
                 if (res.data.success) this.setState({success: true})
                 else this.setState({
+                    success: false,
                     error: {
                         state: true,
                         description: "Username not available"
