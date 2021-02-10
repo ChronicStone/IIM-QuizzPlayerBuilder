@@ -46,6 +46,9 @@
     -o-transform: scaleX(1);
 }
 
-.menuItem.active:after {
-    transform: scaleX(1);
+.menuItem.active {
+    color: $color-brand;
+    &:after {
+        transform: scaleX(1);
+    }
 }
