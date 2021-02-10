@@ -1,6 +1,7 @@
 import React from "react";
 import "../../scss/components/user/login-component.scss";
 import "../../scss/components/generic/form-component.scss";
+import "../../scss/components/generic/text-input-component.scss";
 import Btn from "../btn";
 import axios from "axios"
 import md5 from "md5";
