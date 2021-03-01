@@ -5,38 +5,43 @@ export default class QuestionForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            question: {}
+            question: props.question,
+            change: false
         }
     }
 
-    componentDidMount() {
-        this.setState({question: this.props.question})
+
+    componentDidUpdate(prevProps, prevState) {
+        if(this.props.question.id != prevState.question.id){
+           this.setState({question: this.props.question})
+        }
     }
 
     handleChangeQuestionInput(e) {
-        console.log(e)
-        this.setState({question: {...this.state.question, questionInput: e.target.value}})
+        this.setState({question: {...this.state.question, questionInput: e.target.value}, change: true})
     }
 
     handleInputChange(key, e) {
         let awnsers = this.state.question.awnsers
         awnsers[key].awnserInput = e.target.value
-        this.setState({question: {...this.state.question, awnsers: [...awnsers]}})
+        this.setState({question: {...this.state.question, awnsers: [...awnsers]}, change:true})
     }
 
     handleCorrectAwnserChange(key, e) {
-        console.log({target: e.target.checked})
         if(e.target.checked) {
             let awnsers = this.state.question.awnsers
             for(const itemKey in awnsers) awnsers[itemKey].isCorrectAwnser = false
             awnsers[key].isCorrectAwnser = true
-            this.setState({question: {...this.state.question, awnsers: [...awnsers]}})
+            this.setState({question: {...this.state.question, awnsers: [...awnsers]}, change:true})
         }
     }
 
     handleQuestionSave() {
         this.props.saveNewQuestion(this.state.question)
-        // console.log({question: this.state.question})
+    }
+
+    handleQuestionUpdate() {
+        this.props.updateQuestion(this.state.question)
     }
 
     render() {
@@ -58,7 +63,19 @@ export default class QuestionForm extends React.Component {
                             required
                             style={{width: "98.5%"}}
                         /> 
-                        : <span>{this.state.question.questionInput}</span>
+                        : 
+                        <textarea
+                        name="description"
+                            cols="10"
+                            row="10"
+                            value={this.state.question.questionInput}
+                            onChange={(e) => {this.handleChangeQuestionInput(e)}}
+                            type="description"
+                            className={"text-input-component"}
+                            placeholder='Description'
+                            required
+                            style={{width: "98.5%"}}
+                        /> 
                     }
                 </div>
 
@@ -69,8 +86,18 @@ export default class QuestionForm extends React.Component {
                         { this.props.question.awnsers.map((awnser, key) => {
                             return (
                                 <div className="awnserItem" key={key}>
-                                    <input checked={awnser.isCorrectAwnser} type='checkbox' name="correctAwnser" disabled={!this.props.question.notSaved} value={key} onChange={(e) => {this.handleCorrectAwnserChange(key, e)}}/>   
-                                    {!this.props.question.notSaved ? <div>{awnser.awnserInput}</div> :
+                                    <input checked={awnser.isCorrectAwnser} type='checkbox' name="correctAwnser"  value={key} onChange={(e) => {this.handleCorrectAwnserChange(key, e)}}/>   
+                                    {!this.props.question.notSaved ? 
+                                         <input
+                                            name="awnser"
+                                            value={awnser.awnserInput}
+                                            onChange={(e) => this.handleInputChange(key, e)}
+                                            type="text"
+                                            className={"text-input-component"}
+                                            placeholder="Your awnser ..."
+                                            required
+                                        />
+                                    :
                                         <input
                                             name="awnser"
                                             value={awnser.awnserInput}
@@ -86,12 +113,16 @@ export default class QuestionForm extends React.Component {
                         })}
                     </div>
                 </div>
-
-                {!this.props.question.notSaved ? '' : 
-                    <div className="actionsBloc">
-                        <div onClick={this.handleQuestionSave.bind(this)} className="main-btn-component">SAVE QUESTION</div>
+                {!this.props.question.notSaved  ? 
+                       <div className="actionsBloc">
+                    <div onClick={this.handleQuestionUpdate.bind(this)} className="main-btn-component">Update question</div>
+                </div> 
+                
+                :  <div className="actionsBloc">
+                     <div onClick={this.handleQuestionSave.bind(this)} className="main-btn-component">Save question</div>
                     </div>
                 }
+                
             </div>
         )
     }

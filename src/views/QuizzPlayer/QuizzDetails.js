@@ -46,7 +46,6 @@ class QuizzDetails extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this)
         if (!localStorage.getItem('player')) this.props.history.push('/login')
         this.setState({ ...this.state, isFetching: true });
         api.get(`/quizz/${this.props.match.params.quizzId}`)

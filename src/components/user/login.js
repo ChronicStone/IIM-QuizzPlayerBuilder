@@ -19,9 +19,6 @@ export default class LoginForm extends React.Component {
         }
     }
 
-    componentDidMount() {
-        console.log(this)
-    }
 
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });

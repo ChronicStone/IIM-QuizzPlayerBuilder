@@ -24,17 +24,12 @@ export default class RegisterForm extends React.Component {
         }
     }
 
-    componentDidMount() {
-        console.log(this)
-    }
-
     onChange = (e) => {
         if (e.target.name !== 'avatar') this.setState({ [e.target.name]: e.target.value });
         else this.setState({ avatar: e.target.files[0] })
     }
 
     test(base) {
-        console.log(base)
         this.setState = {
             avatar: base
         }
@@ -68,7 +63,6 @@ export default class RegisterForm extends React.Component {
         const username = this.state.username
         const password = md5(this.state.password)
         let avatar = await this.getBase64(this.state.avatar);
-        console.log({ username, password, avatar })
         let config = {
             headers: {
                 'Content-Type': 'application/json',
