@@ -18,7 +18,7 @@ export default class QuizzForm extends React.Component {
             }
         }
     }
-
+    
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
     }

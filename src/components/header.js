@@ -52,7 +52,6 @@ export default class Header extends React.Component {
         })
 
         window.addEventListener('storage', () => {
-            console.log('token cleared')
             if(!localStorage.getItem('player')) this.props.history.push('/login')
           })
     }

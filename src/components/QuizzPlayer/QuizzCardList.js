@@ -34,7 +34,6 @@ class QuizzCardList extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this)
         this.setState({...this.state, isFetching: true});
         api.get('/quizz')
         .then(response => {

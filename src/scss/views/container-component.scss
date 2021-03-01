@@ -31,3 +31,14 @@
         max-width: 1300px;
     }    
 }
+
+.github-icon{
+    position: fixed;
+    bottom: 2%;
+    left: 2%;
+    
+    svg{
+        width: 30px;
+        height: 30px;
+    }
+}

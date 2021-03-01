@@ -77,8 +77,7 @@ export default class QuizzEditor extends React.Component {
     }
 
     saveNewQuestion(question) {
-        console.log(this)
-        api.post('/question/create', question)
+        const hello = api.post('/question/create', question)
             .then((response) => {
                 if (response.data.success) {
                     Toast({
@@ -97,8 +96,34 @@ export default class QuizzEditor extends React.Component {
             .catch((err) => {
                 console.error(err)
                 Toast({
-                    title: "Question not savec",
+                    title: "Question not save",
                     text: "An error has occured, please try again",
+                    type: "danger"
+                })
+            })
+    }
+
+    updateQuestion(questionId) {
+        api.put(`/question/edit/${questionId.id}`, {questionInput : questionId.questionInput, awnsers: questionId.awnsers})
+            .then((response) => {
+                if (response.data.success) {
+                    console.log(response)
+                    Toast({
+                        title: "Operation successful",
+                        text: "The question have been updated",
+                        type: "success"
+                    })
+                } else Toast({
+                    title: "Operation failed",
+                    text: response.data.message || "An error has occured.",
+                    type: "danger"
+                })
+            })
+            .catch((err) => {
+                console.error(err)
+                Toast({
+                    title: "Operation failed",
+                    text: err.data.message || "An error has occured.",
                     type: "danger"
                 })
             })
@@ -106,8 +131,7 @@ export default class QuizzEditor extends React.Component {
 
     displayActiveQuestion() {
         const question = this.state.questions.find((question) => question.id === this.state.activeQuestionId)
-        console.log()
-        if (question) return (<QuestionForm saveNewQuestion={this.saveNewQuestion.bind(this)} question={question} index={this.state.questions.indexOf(question)} />)
+        if (question) return (<QuestionForm saveNewQuestion={this.saveNewQuestion.bind(this)} updateQuestion={this.updateQuestion.bind(this)}  question={question} index={this.state.questions.indexOf(question)} />)
         else return (
             <div style={{ width: "100%", height: "100%", display: "grid", placeItems: "center" }}>
                 <img src={`${window.location.origin}/img/choose.svg`} alt="delete icon" />
@@ -212,7 +236,6 @@ export default class QuizzEditor extends React.Component {
     }
 
     setQuizzPublicMode() {
-        console.log('triggered')
         if(this.state.questions.length < 1) {
             Toast({
                 title: "Warning",
@@ -220,10 +243,8 @@ export default class QuizzEditor extends React.Component {
                 type: "danger"
             })
         } else {
-            console.log('req start')
             api.post(`/quizz/change-mode/${this.state.quizzData.id}`, {public: true})
             .then((response) => {
-                console.log('done')
                 this.reloadQuizzData() 
                 if(!response.data.success) Toast({
                     title: "Error",
@@ -267,7 +288,7 @@ export default class QuizzEditor extends React.Component {
             <div style={{ display: "flex", flexDirection: "column" }}>
                 <div className="topNavMenu">
                     <div className="leftSide">
-                        <div onClick={() => { this.props.history.push('/quizz/editor') }} className="main-btn-component inverse">🡐</div>
+                        <div onClick={() => { this.props.history.push('/quizz/editor') }} className="main-btn-component">🡐</div>
                         <span>|</span>
                         <div>{this.state.quizzData.title}</div>
                     </div>

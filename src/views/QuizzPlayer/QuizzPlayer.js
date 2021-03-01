@@ -36,14 +36,12 @@ export default class QuizzPlayer extends React.Component {
     }
 
     async triggerNextQuestion(selectedAwnser) {
-        console.log({ selectedAwnser })
         let newScore = this.state.playerScoreData.playerScore + (selectedAwnser.isCorrectAwnser ? 1 : 0)
-        console.log({ newScore })
+        
         await this.setState({ playerScoreData: { ...this.state.playerScoreData, playerScore: newScore } });
         if (this.state.quizzData.questions.find((question, key) => key === this.state.currentQuestionKey + 1)) await this.setState({ currentQuestionKey: this.state.currentQuestionKey + 1 })
         else {
             await this.setState({ quizzEndLoading: true })
-            console.log(this.state)
             this.savePlayerScore()
         }
     }
