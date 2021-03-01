@@ -27,7 +27,7 @@ const MenuItem = ({history, location, slug, name}) => {
         history.push(slug)
     }
     return (
-        <div class={`menuItem ${slug === location.pathname ? 'active' : ''}`} onClick={triggerRoute}>{name}</div>
+        <div className={`menuItem ${slug === location.pathname ? 'active' : ''}`} onClick={triggerRoute}>{name}</div>
 
     )
 }

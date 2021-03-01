@@ -1,6 +1,6 @@
 import React from "react"
 import "../../scss/components/quizz/question-form-component.scss"
-import Btn from "../btn"
+
 export default class QuestionForm extends React.Component {
     constructor(props) {
         super(props)
