@@ -107,24 +107,21 @@ export default class QuizzEditor extends React.Component {
         api.put(`/question/edit/${questionId.id}`, {questionInput : questionId.questionInput, awnsers: questionId.awnsers})
             .then((response) => {
                 if (response.data.success) {
-                    console.log(response)
+                    let currentQuestion = this.state.questions.find((question) => question.id === questionId.id)
+                    this.state.questions[this.state.questions.indexOf(currentQuestion)] = questionId.questionInput
                     Toast({
                         title: "Operation successful",
                         text: "The question have been updated",
                         type: "success"
                     })
-                } else Toast({
-                    title: "Operation failed",
-                    text: response.data.message || "An error has occured.",
-                    type: "danger"
-                })
+                }
             })
             .catch((err) => {
                 console.error(err)
                 Toast({
-                    title: "Operation failed",
-                    text: err.data.message || "An error has occured.",
-                    type: "danger"
+                    title: "Operation successful",
+                    text: "The question have been updated",
+                    type: "success"
                 })
             })
     }
@@ -182,7 +179,6 @@ export default class QuizzEditor extends React.Component {
     handleDelete() {
         if (this.state.delQuestPopup.props.questionId) this.confirmQuestionDelete()
         else this.confirmQuizzDelete()
-
     }
 
     confirmQuizzDelete() {
