@@ -109,6 +109,7 @@ export default class QuizzEditor extends React.Component {
                 if (response.data.success) {
                     let currentQuestion = this.state.questions.find((question) => question.id === questionId.id)
                     this.state.questions[this.state.questions.indexOf(currentQuestion)] = questionId.questionInput
+                    this.reloadQuizzData()
                     Toast({
                         title: "Operation successful",
                         text: "The question have been updated",
